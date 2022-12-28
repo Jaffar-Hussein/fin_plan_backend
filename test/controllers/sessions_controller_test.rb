@@ -1,7 +1,6 @@
 require "test_helper"
 
 class SessionsControllerTest < ActionDispatch::IntegrationTest
- # test/controllers/sessions_controller_test.rb
 
 test "login with valid credentials" do
   user = users(:one)
@@ -41,4 +40,12 @@ test "register with invalid params" do
       password: "",
     }
   end
+end 
+
+test "logout" do
+  delete :destroy
+  assert_response :redirect
+  assert_redirected_to login_path
+  assert_nil session[:user_id]
 end
+
