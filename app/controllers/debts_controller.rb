@@ -1,47 +1,48 @@
 class DebtsController < ApplicationController
     def index
         @debts = Debt.all
-      end
+    end
     
-      def show
+    def show
         @debt = Debt.find(params[:id])
-      end
+    end
     
-      def new
+    def new
         @debt = Debt.new
-      end
+    end
     
-      def create
+    def create
         @debt = Debt.new(debt_params)
         if @debt.save
           redirect_to @debt
         else
           render 'new'
         end
-      end
+    end
     
-      def edit
+    def edit
         @debt = Debt.find(params[:id])
-      end
+    end
     
-      def update
+    def update
         @debt = Debt.find(params[:id])
         if @debt.update(debt_params)
           redirect_to @debt
         else
           render 'edit'
         end
-      end
+    end
     
-      def destroy
+    def destroy
         @debt = Debt.find(params[:id])
         @debt.destroy
         redirect_to debts_path
-      end
+    end
     
-      private
+    private
     
-      def debt_params
+    def debt_params
         params.require(:debt).permit(:name, :amount, :date, :status)
-      end
+    end
+
 end
