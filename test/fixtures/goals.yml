@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  goal_name: MyString
+  amount: 1
+  due_date: 2023-01-10
+
+two:
+  goal_name: MyString
+  amount: 1
+  due_date: 2023-01-10
