@@ -1,14 +1,17 @@
 class RetirementsController < ApplicationController
     def index
         @retirements = Retirement.all
+        render json: @retirements
     end
     
     def show
         @retirement = Retirement.find(params[:id])
+        render json: @retirements
     end
     
     def new
         @retirement = Retirement.new
+        render json: @retirements
     end
     
     def create
@@ -18,10 +21,12 @@ class RetirementsController < ApplicationController
         else
           render 'new'
         end
+        render json: @retirements
     end
     
     def edit
         @retirement = Retirement.find(params[:id])
+        render json: @retirements
     end
     
     def update
@@ -31,17 +36,20 @@ class RetirementsController < ApplicationController
         else
           render 'edit'
         end
+        render json: @retirements
     end
     
     def destroy
         @retirement = Retirement.find(params[:id])
         @retirement.destroy
         redirect_to retirements_path
+        render json: @retirements
     end
     
     private
     
     def retirement_params
         params.require(:retirement).permit(:years, :amount_so_far, :goal, :sources)
+        render json: @retirements
     end
 end

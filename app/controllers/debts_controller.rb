@@ -1,14 +1,17 @@
 class DebtsController < ApplicationController
     def index
         @debts = Debt.all
+        render json: @debts
     end
     
     def show
         @debt = Debt.find(params[:id])
+        render json: @debt
     end
     
     def new
         @debt = Debt.new
+        render json: @debt
     end
     
     def create
@@ -18,10 +21,12 @@ class DebtsController < ApplicationController
         else
           render 'new'
         end
+        render json: @debt
     end
     
     def edit
         @debt = Debt.find(params[:id])
+        render json: @debt
     end
     
     def update
@@ -31,18 +36,21 @@ class DebtsController < ApplicationController
         else
           render 'edit'
         end
+        render json: @debt
     end
     
     def destroy
         @debt = Debt.find(params[:id])
         @debt.destroy
         redirect_to debts_path
+        render json: @debt
     end
     
     private
     
     def debt_params
         params.require(:debt).permit(:name, :amount, :date, :status)
+        render json: @debt
     end
 
 end
