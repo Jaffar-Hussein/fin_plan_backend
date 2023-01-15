@@ -46,6 +46,6 @@ class SourcesController < ApplicationController
     private
       
     def source_params
-        params.require(:source).permit(:name, :type, :amount, :frequency)
+        params.require(:source).permit(:name, :source_type, :amount, :frequency)
     end   
 end
