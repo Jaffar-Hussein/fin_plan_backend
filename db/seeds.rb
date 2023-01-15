@@ -17,9 +17,9 @@ Retirement.create(years: 40, amount_so_far: 30000, goal: 150000, sources: "401k,
 
 
 # debt data
-Debt.create(debt_name: "Credit card", amount: 1000, date: Date.today, status: "active")
-Debt.create(debt_name: "Student loan", amount: 5000, date: Date.today, status: "active")
-Debt.create(debt_name: "Car loan", amount: 10000, date: Date.today, status: "active")
+Debt.create(debt_name: "Credit card", amount: 1000, date: Date.today, status: "paid")
+Debt.create(debt_name: "Student loan", amount: 5000, date: Date.today, status: "paid")
+Debt.create(debt_name: "Car loan", amount: 10000, date: Date.today, status: "unpaid")
 
 # goals data
 Goal.create(goal_name: "Buy a house", amount: 300000, due_date: Date.today + 1.year)
@@ -27,9 +27,9 @@ Goal.create(goal_name: "Save for a vacation", amount: 5000, due_date: Date.today
 Goal.create(goal_name: "Save for a new car", amount: 20000, due_date: Date.today + 2.years)
 
 # savings data
-Source.create(name: "Paycheck", source_type: "income", amount: 5000, frequency: "monthly")
-Source.create(name: "Rental property", source_type: "income", amount: 2000, frequency: "monthly")
-Source.create(name: "Part-time job", source_type: "income", amount: 1000, frequency: "monthly")
+Source.create(name: "Paycheck", source_type: "Salary", amount: 5000, frequency: "monthly")
+Source.create(name: "Rental property", source_type: "investment", amount: 2000, frequency: "monthly")
+Source.create(name: "Part-time job", source_type: "investment", amount: 1000, frequency: "monthly")
 
 
 

@@ -50,7 +50,6 @@ class DebtsController < ApplicationController
     
     def debt_params
         params.require(:debt).permit(:name, :amount, :date, :status)
-        render json: @debt
     end
 
 end

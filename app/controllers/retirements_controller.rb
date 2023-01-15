@@ -6,7 +6,7 @@ class RetirementsController < ApplicationController
     
     def show
         @retirement = Retirement.find(params[:id])
-        render json: @retirements
+        render json: @retirement
     end
     
     def new

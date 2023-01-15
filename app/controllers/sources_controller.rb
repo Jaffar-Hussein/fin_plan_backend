@@ -1,23 +1,23 @@
 class SourcesController < ApplicationController
     def index
         @sources = Source.all
-        render json: { status: 'success', sources: @sources }, status: :ok
+        render json: @sources
     end
       
     def show
         @source = Source.find(params[:id])
-        render json: { status: 'success', source: @source }, status: :ok
+        render json: @source
     end
       
     def new
         @source = Source.new
-        render json: { status: 'success', source: @source }, status: :ok
+        render json: @sources
     end
       
     def create
         @source = Source.new(source_params)
         if @source.save
-          render json: { status: 'success', source: @source }, status: :created
+            render json: @sources
         else
           render json: { status: 'error', message: @source.errors.full_messages.join(', ') }, status: :unprocessable_entity
         end
