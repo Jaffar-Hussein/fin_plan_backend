@@ -17,7 +17,6 @@ class GoalsController < ApplicationController
     def create
       @goal = Goal.new(goal_params)
       if @goal.save
-        redirect_to @goal
       else
         render 'new'
       end
@@ -32,7 +31,6 @@ class GoalsController < ApplicationController
     def update
       @goal = Goal.find(params[:id])
       if @goal.update(goal_params)
-        redirect_to @goal
       else
         render 'edit'
       end
@@ -42,13 +40,12 @@ class GoalsController < ApplicationController
     def destroy
       @goal = Goal.find(params[:id])
       @goal.destroy
-      redirect_to goals_path
       render json: @goal
     end
   
     private
   
     def goal_params
-      params.require(:goal).permit(:name, :amount, :due_date)
+      params.require(:goal).permit(:goal_name, :amount, :due_date)
     end
 end  
