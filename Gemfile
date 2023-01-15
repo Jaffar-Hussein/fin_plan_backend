@@ -45,6 +45,9 @@ gem "bootsnap", require: false
 #Use the JSON web Token for authentication
 gem "jwt", "~> 1.5", ">= 1.5.4"
 
+#To allow cross sharing
+gem 'rack-cors'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
