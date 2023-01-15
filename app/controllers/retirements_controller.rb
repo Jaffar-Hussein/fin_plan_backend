@@ -11,17 +11,16 @@ class RetirementsController < ApplicationController
     
     def new
         @retirement = Retirement.new
-        render json: @retirements
+        render json: @retirement
     end
     
     def create
         @retirement = Retirement.new(retirement_params)
         if @retirement.save
-          redirect_to @retirement
         else
           render 'new'
         end
-        render json: @retirements
+        render json: @retirement
     end
     
     def edit
@@ -32,7 +31,6 @@ class RetirementsController < ApplicationController
     def update
         @retirement = Retirement.find(params[:id])
         if @retirement.update(retirement_params)
-          redirect_to @retirement
         else
           render 'edit'
         end
@@ -42,8 +40,7 @@ class RetirementsController < ApplicationController
     def destroy
         @retirement = Retirement.find(params[:id])
         @retirement.destroy
-        redirect_to retirements_path
-        render json: @retirements
+        render json: @retirement
     end
     
     private
