@@ -17,7 +17,6 @@ class DebtsController < ApplicationController
     def create
         @debt = Debt.new(debt_params)
         if @debt.save
-          redirect_to @debt
         else
           render 'new'
         end
@@ -49,7 +48,7 @@ class DebtsController < ApplicationController
     private
     
     def debt_params
-        params.require(:debt).permit(:name, :amount, :date, :status)
+        params.require(:debt).permit(:debt_name, :amount, :date, :status)
     end
 
 end
