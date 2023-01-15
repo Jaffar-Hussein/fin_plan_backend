@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     private
     
     def user_params
-        params.require(:user).permit(:firstname, :secondname, :email, :password)
+        params.require(:user).permit(:first_name, :second_name, :email, :password)
     end
     
     def create_jwt(user)

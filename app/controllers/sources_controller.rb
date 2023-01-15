@@ -17,7 +17,7 @@ class SourcesController < ApplicationController
     def create
         @source = Source.new(source_params)
         if @source.save
-            render json: @sources
+            render json: @source, status: :created
         else
           render json: { status: 'error', message: @source.errors.full_messages.join(', ') }, status: :unprocessable_entity
         end

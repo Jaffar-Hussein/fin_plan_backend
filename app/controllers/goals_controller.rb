@@ -50,6 +50,5 @@ class GoalsController < ApplicationController
   
     def goal_params
       params.require(:goal).permit(:name, :amount, :due_date)
-      render json: @goal
     end
 end  

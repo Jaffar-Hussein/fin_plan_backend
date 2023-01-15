@@ -50,6 +50,5 @@ class RetirementsController < ApplicationController
     
     def retirement_params
         params.require(:retirement).permit(:years, :amount_so_far, :goal, :sources)
-        render json: @retirements
     end
 end
