@@ -1,13 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  debt_name: MyString
-  amount: 1
-  date: 2023-01-10
-  status: MyString
+  goal_amount: 1
+  name: MyString
+  amount_saved: 1
+  due_date: 2023-01-16 12:36:55
+  user: one
 
 two:
-  debt_name: MyString
-  amount: 1
-  date: 2023-01-10
-  status: MyString
+  goal_amount: 1
+  name: MyString
+  amount_saved: 1
+  due_date: 2023-01-16 12:36:55
+  user: two

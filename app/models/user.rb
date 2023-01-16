@@ -1,4 +1,5 @@
 class User < ApplicationRecord
     has_secure_password
-    validates :username, uniqueness: { case_sensitive: false }
+    has_many :goals
+    validates :email, uniqueness: {message: "Email address is already in use"}
 end
