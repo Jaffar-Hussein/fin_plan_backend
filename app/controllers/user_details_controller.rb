@@ -1,8 +1,10 @@
 class UserDetailsController < ApplicationController
     # before_action :authenticate_user!
+    # token = request.headers['Authorization'].split(' ').last
+    # decoded = JWT.decode(token, Rails.application.secrets.secret_key_base)
 
     def show
-        @user = User.find(params[:id])
+        # @user = User.find(params[:id])
         render json: @user
     end  
     private
