@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
+  post '/register', to: 'users#create'
   post '/login', to: 'auth#create'
   get '/profile', to: 'users#profile'
-  delete 'logout', to: 'sessions#destroy'
-  get 'register', to: 'sessions#new'
-  post 'register', to: 'sessions#register'
+  delete 'logout', to: 'auth#destroy'
   patch "/retirements", to: "retirements#update"
   resources :retirements
   resources :users
