@@ -1,7 +1,6 @@
 class DebtsController < ApplicationController
-    before_action :authenticate_user!
     def index
-        @debts = Debt.all
+        @debts = current_user.debts
         render json: @debts
     end
     
@@ -16,7 +15,7 @@ class DebtsController < ApplicationController
     end
     
     def create
-        @debt = Debt.new(debt_params)
+        @debt = current_user.debts.new(debt_params)
         if @debt.save
         else
           render 'new'
@@ -49,7 +48,7 @@ class DebtsController < ApplicationController
     private
     
     def debt_params
-        params.require(:debt).permit(:debt_name, :amount, :date, :status)
+        params.permit(:name, :amount_due,:amount_paid, :due_date)
     end
 
 end
