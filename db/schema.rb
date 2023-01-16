@@ -10,25 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_14_090117) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_16_115622) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "debts", force: :cascade do |t|
-    t.string "debt_name"
-    t.integer "amount"
-    t.date "date"
-    t.string "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "goals", force: :cascade do |t|
-    t.string "goal_name"
-    t.integer "amount"
-    t.date "due_date"
+    t.integer "goal_amount"
+    t.string "name"
+    t.integer "amount_saved"
+    t.datetime "due_date"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_goals_on_user_id"
   end
 
   create_table "retirements", force: :cascade do |t|
@@ -59,4 +53,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_14_090117) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "goals", "users"
 end

@@ -1,6 +1,7 @@
 class GoalsController < ApplicationController
+  
     def index
-      @goals = Goal.all
+      @goals = current_user.goals
       render json: @goals
     end
   
@@ -15,7 +16,8 @@ class GoalsController < ApplicationController
     end
   
     def create
-      @goal = Goal.new(goal_params)
+      @goal = current_user.goals.new(goal_params)
+      
       if @goal.save
       else
         render 'new'
@@ -46,6 +48,6 @@ class GoalsController < ApplicationController
     private
   
     def goal_params
-      params.require(:goal).permit(:goal_name, :amount, :due_date)
+      params.permit(:name, :goal_amount, :amount_saved,:due_date)
     end
 end  

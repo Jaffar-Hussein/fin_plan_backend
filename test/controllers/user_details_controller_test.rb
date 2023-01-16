@@ -1,6 +1,6 @@
 require "test_helper"
 
-class DebtTest < ActiveSupport::TestCase
+class UserDetailsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
