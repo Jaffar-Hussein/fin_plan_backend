@@ -1,13 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  years: 1
-  amount_so_far: 1
-  goal: 1
-  sources: MyString
+  retirement_age: 1
+  retirement_goal: 1
+  money_saved: 1
+  savings: 1
+  user: one
 
 two:
-  years: 1
-  amount_so_far: 1
-  goal: 1
-  sources: MyString
+  retirement_age: 1
+  retirement_goal: 1
+  money_saved: 1
+  savings: 1
+  user: two

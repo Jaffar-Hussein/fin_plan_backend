@@ -1,6 +1,6 @@
 class RetirementsController < ApplicationController
     def index
-        @retirements = Retirement.all
+        @retirements = current_user.retirements
         render json: @retirements
     end
     
@@ -15,7 +15,7 @@ class RetirementsController < ApplicationController
     end
     
     def create
-        @retirement = Retirement.new(retirement_params)
+        @retirement = current_user.retirements.new(retirement_params)
         if @retirement.save
         else
           render 'new'
@@ -46,6 +46,6 @@ class RetirementsController < ApplicationController
     private
     
     def retirement_params
-        params.require(:retirement).permit(:years, :amount_so_far, :goal, :sources)
+        params.permit(:retirement_age,:retirement_goal,:money_saved,:savings)
     end
 end

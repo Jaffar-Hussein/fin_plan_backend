@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   resources :sources
   resources :goals
   resources :debts
-  get 'user_details/:id', to: 'user_details#show'
+  get 'user_details', to: 'user_details#show'
 end
