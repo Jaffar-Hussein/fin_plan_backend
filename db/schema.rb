@@ -10,10 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_16_201122) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_18_154258) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "timescaledb"
 
   create_table "debts", force: :cascade do |t|
     t.string "name"
@@ -65,6 +64,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_16_201122) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "age"
+    t.string "gender"
+    t.string "source_type"
+    t.string "retirement_age"
+    t.integer "bank_balance"
   end
 
   add_foreign_key "debts", "users"
