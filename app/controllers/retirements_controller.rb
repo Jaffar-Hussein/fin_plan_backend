@@ -46,6 +46,6 @@ class RetirementsController < ApplicationController
     private
     
     def retirement_params
-        params.permit(:retirement_age,:retirement_goal,:money_saved,:savings)
+        params.permit(:retirement_age,:retirement_goal,:money_saved,:savings,:name)
     end
 end
