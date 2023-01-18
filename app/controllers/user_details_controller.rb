@@ -7,25 +7,14 @@ class UserDetailsController < ApplicationController
         # @user = User.find(params[:id])
         render json: @user
     end  
+    def update 
+        # @user= current_user
+        @user.update(user_params)
+        render json:@user
+      end
     private
-#     def authenticate_user
-#         unless decoded_token
-#           render json: {error: "You are not authorized to access this information"}, status: 401
-#         end
-#     end
-#     def decoded_token
-#     if request.headers['Authorization'].present?
-#         token = request.headers['Authorization'].split(' ').last
-#         JWT.decode(token, Rails.application.secrets.secret_key_base)
-#     end
-# end
-# def authorize_user
-#     unless current_user.admin?
-#       render json: {error: "You are not authorized to access this information"}, status: 401
-#     end
-# end
-# def current_user
-#     @current_user ||= User.find(decoded_token[0]['user_id'])
-# end
+    def user_params
+        params.permit(:first_name, :second_name, :email, :age, :gender, :source_type, :retirement_age, :bank_balance)
+  end
 
 end
