@@ -31,7 +31,7 @@ class DebtsController < ApplicationController
     def update
         @debt = Debt.find(params[:id])
         if @debt.update(debt_params)
-          redirect_to @debt
+          render json: @debt
         else
           render 'edit'
         end
